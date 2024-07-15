@@ -1,0 +1,43 @@
+global:
+  enabled: true
+
+
+server:
+  enabled: "-"
+  
+  volumes:
+    - name: vault-plugins
+      persistentVolumeClaim:
+        claimName: "vault-plugins-pvc"
+
+  volumeMounts:
+    - name: vault-plugins
+      mountPath: /vault/plugins
+      readOnly: false
+ 
+  dataStorage:
+    enabled: true
+    size: 10Gi
+    mountPath: "/vault/data"
+    storageClass: null
+    accessMode: ReadWriteOnce
+    annotations: {}
+    labels: {}
+
+  standalone:
+
+    enabled: "-"
+
+    config: |
+      ui = true
+
+      listener "tcp" {
+        tls_disable = 1
+        address = "[::]:8200"
+        cluster_address = "[::]:8201"
+      }
+      storage "file" {
+        path = "/vault/data"
+      }
+
+      plugin_directory = "/vault/plugins"

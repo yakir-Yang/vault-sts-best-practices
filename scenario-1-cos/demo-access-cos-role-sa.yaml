@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  annotations:
+    tke.cloud.tencent.com/audience: sts.cloud.tencent.com
+    tke.cloud.tencent.com/role-arn: qcs::cam::uin/200022445645:roleName/DemoAccessCosRole
+    tke.cloud.tencent.com/token-expiration: "86400"
+  name: demo-access-cos-role-sa
+  namespace: default

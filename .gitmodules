@@ -1,0 +1,12 @@
+[submodule "vault-plugin-auth-tencentcloud"]
+	path = vault-plugin-auth-tencentcloud
+	url = https://github.com/tencentcloudstack/vault-plugin-auth-tencentcloud
+[submodule "vault-plugin-secrets-tencentcloud"]
+	path = vault-plugin-secrets-tencentcloud
+	url = https://github.com/tencentcloudstack/vault-plugin-secrets-tencentcloud
+[submodule "vault/vault-plugin-secrets-tencentcloud"]
+	path = vault/vault-plugin-secrets-tencentcloud
+	url = https://github.com/tencentcloudstack/vault-plugin-secrets-tencentcloud
+[submodule "vault/vault-plugin-auth-tencentcloud"]
+	path = vault/vault-plugin-auth-tencentcloud
+	url = https://github.com/tencentcloudstack/vault-plugin-auth-tencentcloud

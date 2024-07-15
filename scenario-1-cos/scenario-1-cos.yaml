@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scenario-1-cos-deployment
+spec:
+  selector:
+    matchLabels:
+      app: scenario-1-cos
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: scenario-1-cos
+    spec:
+      serviceAccountName: demo-access-cos-role-sa
+      containers:
+        - name: scenario-1-cos
+          image: yakirkkyang/sts-demo-scenario-1-cos:latest
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: scenario-1-cos-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: scenario-1-cos
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+
